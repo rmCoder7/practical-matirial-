@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="product-name-filed" type="text" placeholder="product name">
+    <input id="product-quality" type="text" placeholder="Quantity">
+    <button onclick="addProduct()" id="btn-add-product">Add Product</button>
+
+<ul id="product-contianer">
+
+
+
+</ul>
+
+    <script>
+
+   const getInputbyId = id=>{
+   const inputField = document.getElementById(id);
+   const inputValue = inputField.value;
+   inputField.value='';
+   return inputValue;
+
+   }
+
+
+
+const addProduct =()=>{
+
+
+const product = getInputbyId("product-name-filed")
+const QuantityProducts = getInputbyId('product-quality')
+console.log(product , QuantityProducts)
+
+
+// display Ul
+displayProduct(product, QuantityProducts);
+
+
+// local storaage
+
+localStorage.setItem(product , QuantityProducts);
+
+}
+
+
+const displayProduct = (product, QuantityProducts)=>{
+
+const ProductContaienr = document.getElementById('product-contianer ')
+ const li = document.getElementById('product-contianer');
+ li.innerText = `${product}:${QuantityProducts}`;
+ ProductContaienr.appendChild(li)
+
+
+}
+
+
+    </script>
+</body>
+</html>
